@@ -45,8 +45,7 @@
     .nav-button:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
     .section { padding-block: clamp(4rem, 8vw, 7rem); scroll-margin-top: 112px; }
     .section + .section { border-top: 1px solid var(--line); }
-    .section-heading { display: flex; align-items: baseline; gap: 1.1rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
-    .section-number { color: var(--accent); font-size: .8rem; letter-spacing: .12em; flex-shrink: 0; }
+    .section-heading { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 7vw, 6rem); align-items: center; }
     .about-copy .section-heading { margin-bottom: 2rem; }
     .about-copy p + p { margin-top: 1.2rem; }
@@ -56,14 +55,16 @@
     .about-quote { max-width: 42rem; margin-top: clamp(3rem, 6vw, 5.5rem); margin-left: auto; padding: .5rem 1.75rem .5rem 0; border-right: 3px solid var(--accent); text-align: right; }
     .about-quote p { color: #d9dfce; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.3rem, 2.7vw, 1.8rem); font-style: italic; line-height: 1.6; }
     .services { display: grid; }
-    .service-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 7vw, 6rem); align-items: center; padding-block: 3rem; }
+    .service-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: center; padding-block: 1rem; }
     .service-row:first-child { padding-top: 0; }
     .service-row:last-child { padding-bottom: 0; }
     .service-row + .service-row { border-top: 1px solid var(--line); }
     .service-row:nth-child(even) .service-copy { order: 2; }
-    .service-row:nth-child(even) .photo-frame { order: 1; }
-    .service-number { display: block; color: var(--accent); font-size: .8rem; letter-spacing: .12em; margin-bottom: 1rem; }
-    .service-copy h3 { margin-bottom: 1.2rem; }
+    .service-row:nth-child(even) .photo-frame { order: 1; justify-self: start; }
+    .service-row .photo-frame { width: min(100%, 20rem); justify-self: end; border-radius: .75rem; }
+    .service-row .photo-frame img { aspect-ratio: 2 / 1; }
+    #sto-nudim .section-heading { margin-bottom: 2rem; }
+    .service-copy h3 { margin-bottom: .5rem; font-size: 1.35rem; }
     .service-copy p { max-width: 48ch; }
     .contact-intro { max-width: 55ch; margin-top: -1rem; margin-bottom: 2.5rem; }
     .contact-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
@@ -89,11 +90,12 @@
       .about-quote { padding-right: 1.2rem; }
       .service-row:nth-child(even) .service-copy,
       .service-row:nth-child(even) .photo-frame { order: initial; }
-      .service-row { padding-block: 2.5rem; }
+      .service-row { gap: 1rem; padding-block: 1rem; }
+      .service-row .photo-frame,
+      .service-row:nth-child(even) .photo-frame { justify-self: center; }
       .contact-grid { grid-template-columns: 1fr; }
       .contact-card { padding: 1.5rem; }
       .business-row { grid-template-columns: 1fr; gap: .6rem; }
-      .section-heading { gap: .8rem; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -113,8 +115,7 @@
         <a class="nav-button" href="#o-meni">klik 1</a>
         <a class="nav-button" href="#sto-nudim">klik 2</a>
         <a class="nav-button" href="#kontakt">klik 3</a>
-        <!-- klik 4 intentionally links to header 3, as specified. -->
-        <a class="nav-button" href="#kontakt">klik 4</a>
+        <a class="nav-button" href="#poslovne-informacije">klik 4</a>
       </nav>
     </div>
   </header>
@@ -123,84 +124,76 @@
       <div class="about-grid">
         <div class="about-copy">
           <div class="section-heading">
-            <span class="section-number" aria-hidden="true">01</span>
             <h1 id="about-heading">o meni</h1>
           </div>
-          <p>Ovdje dolazi tekst o meni. Prostor za kratko predstavljanje, iskustvo i priču koju želim podijeliti.</p>
-          <p>Ovdje dolazi dodatni tekst o mojem radu, interesima i pristupu.</p>
+          <p>Tekst o meni</p>
+          <p>nesto kraci tekst o meni</p>
         </div>
         <figure class="photo-frame">
           <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%20viewBox%3D%220%200%20800%20600%22%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20rx%3D%2216%22%20fill%3D%22%23252d23%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%22760%22%20height%3D%22560%22%20rx%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%2358634f%22%20stroke-dasharray%3D%226%208%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%238c9980%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%22350%22%20y%3D%22232%22%20width%3D%22100%22%20height%3D%2276%22%20rx%3D%229%22%2F%3E%3Ccircle%20cx%3D%22376%22%20cy%3D%22254%22%20r%3D%229%22%2F%3E%3Cpath%20d%3D%22m355%20296%2028-27%2022%2020%2016-16%2024%2023%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22400%22%20y%3D%22355%22%20fill%3D%22%23c8cfbf%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2221%22%20text-anchor%3D%22middle%22%3EMoja%20fotografija%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Mjesto za fotografiju uz odjeljak o meni" width="800" height="600">
         </figure>
       </div>
       <blockquote class="about-quote">
-        <p>Ovdje dolazi kratka misao, citat ili poruka koja zaokružuje moju priču.</p>
+        <p>tu sam jako pametan nesto latin</p>
       </blockquote>
     </section>
     <section class="section container" id="sto-nudim" aria-labelledby="services-heading">
       <div class="section-heading">
-        <span class="section-number" aria-hidden="true">02</span>
         <h2 id="services-heading">što nudim</h2>
       </div>
       <div class="services">
         <article class="service-row">
           <div class="service-copy">
-            <span class="service-number" aria-hidden="true">01</span>
-            <h3>Usluga 1</h3>
-            <p>Ovdje dolazi tekst o usluzi 1. Prostor za opis ponude, način rada i ono što ovu uslugu čini posebnom.</p>
+            <h3>stavka 1</h3>
+            <p>ovdje dajem opis, jako smart</p>
           </div>
           <figure class="photo-frame">
-            <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%20viewBox%3D%220%200%20800%20600%22%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20rx%3D%2216%22%20fill%3D%22%23252d23%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%22760%22%20height%3D%22560%22%20rx%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%2358634f%22%20stroke-dasharray%3D%226%208%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%238c9980%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%22350%22%20y%3D%22232%22%20width%3D%22100%22%20height%3D%2276%22%20rx%3D%229%22%2F%3E%3Ccircle%20cx%3D%22376%22%20cy%3D%22254%22%20r%3D%229%22%2F%3E%3Cpath%20d%3D%22m355%20296%2028-27%2022%2020%2016-16%2024%2023%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22400%22%20y%3D%22355%22%20fill%3D%22%23c8cfbf%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2221%22%20text-anchor%3D%22middle%22%3EFotografija%20usluge%201%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Mjesto za fotografiju usluge 1" width="800" height="600" loading="lazy">
+            <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22320%22%20viewBox%3D%220%200%20640%20320%22%3E%3Crect%20width%3D%22640%22%20height%3D%22320%22%20rx%3D%2212%22%20fill%3D%22%23252d23%22%2F%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22608%22%20height%3D%22288%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%2358634f%22%20stroke-dasharray%3D%226%208%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%238c9980%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%22287%22%20y%3D%22110%22%20width%3D%2266%22%20height%3D%2250%22%20rx%3D%226%22%2F%3E%3Ccircle%20cx%3D%22304%22%20cy%3D%22125%22%20r%3D%226%22%2F%3E%3Cpath%20d%3D%22m291%20152%2018-18%2015%2013%2011-11%2014%2016%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22320%22%20y%3D%22200%22%20fill%3D%22%23c8cfbf%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2216%22%20text-anchor%3D%22middle%22%3EFotografija%20stavke%201%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Mjesto za fotografiju stavke 1" width="640" height="320" loading="lazy">
           </figure>
         </article>
         <article class="service-row">
           <div class="service-copy">
-            <span class="service-number" aria-hidden="true">02</span>
-            <h3>Usluga 2</h3>
-            <p>Ovdje dolazi tekst o usluzi 2. Prostor za opis ponude, način rada i ono što ovu uslugu čini posebnom.</p>
+            <h3>stavka 2</h3>
+            <p>ovdje dajem opis, jako smart</p>
           </div>
           <figure class="photo-frame">
-            <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%20viewBox%3D%220%200%20800%20600%22%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20rx%3D%2216%22%20fill%3D%22%23252d23%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%22760%22%20height%3D%22560%22%20rx%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%2358634f%22%20stroke-dasharray%3D%226%208%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%238c9980%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%22350%22%20y%3D%22232%22%20width%3D%22100%22%20height%3D%2276%22%20rx%3D%229%22%2F%3E%3Ccircle%20cx%3D%22376%22%20cy%3D%22254%22%20r%3D%229%22%2F%3E%3Cpath%20d%3D%22m355%20296%2028-27%2022%2020%2016-16%2024%2023%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22400%22%20y%3D%22355%22%20fill%3D%22%23c8cfbf%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2221%22%20text-anchor%3D%22middle%22%3EFotografija%20usluge%202%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Mjesto za fotografiju usluge 2" width="800" height="600" loading="lazy">
+            <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22320%22%20viewBox%3D%220%200%20640%20320%22%3E%3Crect%20width%3D%22640%22%20height%3D%22320%22%20rx%3D%2212%22%20fill%3D%22%23252d23%22%2F%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22608%22%20height%3D%22288%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%2358634f%22%20stroke-dasharray%3D%226%208%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%238c9980%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%22287%22%20y%3D%22110%22%20width%3D%2266%22%20height%3D%2250%22%20rx%3D%226%22%2F%3E%3Ccircle%20cx%3D%22304%22%20cy%3D%22125%22%20r%3D%226%22%2F%3E%3Cpath%20d%3D%22m291%20152%2018-18%2015%2013%2011-11%2014%2016%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22320%22%20y%3D%22200%22%20fill%3D%22%23c8cfbf%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2216%22%20text-anchor%3D%22middle%22%3EFotografija%20stavke%202%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Mjesto za fotografiju stavke 2" width="640" height="320" loading="lazy">
           </figure>
         </article>
         <article class="service-row">
           <div class="service-copy">
-            <span class="service-number" aria-hidden="true">03</span>
-            <h3>Usluga 3</h3>
-            <p>Ovdje dolazi tekst o usluzi 3. Prostor za opis ponude, način rada i ono što ovu uslugu čini posebnom.</p>
+            <h3>stavka 3</h3>
+            <p>ovdje dajem opis, jako smart</p>
           </div>
           <figure class="photo-frame">
-            <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%20viewBox%3D%220%200%20800%20600%22%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20rx%3D%2216%22%20fill%3D%22%23252d23%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%22760%22%20height%3D%22560%22%20rx%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%2358634f%22%20stroke-dasharray%3D%226%208%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%238c9980%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%22350%22%20y%3D%22232%22%20width%3D%22100%22%20height%3D%2276%22%20rx%3D%229%22%2F%3E%3Ccircle%20cx%3D%22376%22%20cy%3D%22254%22%20r%3D%229%22%2F%3E%3Cpath%20d%3D%22m355%20296%2028-27%2022%2020%2016-16%2024%2023%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22400%22%20y%3D%22355%22%20fill%3D%22%23c8cfbf%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2221%22%20text-anchor%3D%22middle%22%3EFotografija%20usluge%203%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Mjesto za fotografiju usluge 3" width="800" height="600" loading="lazy">
+            <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22320%22%20viewBox%3D%220%200%20640%20320%22%3E%3Crect%20width%3D%22640%22%20height%3D%22320%22%20rx%3D%2212%22%20fill%3D%22%23252d23%22%2F%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22608%22%20height%3D%22288%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%2358634f%22%20stroke-dasharray%3D%226%208%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%238c9980%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%22287%22%20y%3D%22110%22%20width%3D%2266%22%20height%3D%2250%22%20rx%3D%226%22%2F%3E%3Ccircle%20cx%3D%22304%22%20cy%3D%22125%22%20r%3D%226%22%2F%3E%3Cpath%20d%3D%22m291%20152%2018-18%2015%2013%2011-11%2014%2016%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22320%22%20y%3D%22200%22%20fill%3D%22%23c8cfbf%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2216%22%20text-anchor%3D%22middle%22%3EFotografija%20stavke%203%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Mjesto za fotografiju stavke 3" width="640" height="320" loading="lazy">
           </figure>
         </article>
         <article class="service-row">
           <div class="service-copy">
-            <span class="service-number" aria-hidden="true">04</span>
-            <h3>Usluga 4</h3>
-            <p>Ovdje dolazi tekst o usluzi 4. Prostor za opis ponude, način rada i ono što ovu uslugu čini posebnom.</p>
+            <h3>stavka 4</h3>
+            <p>ovdje dajem opis, jako smart</p>
           </div>
           <figure class="photo-frame">
-            <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%20viewBox%3D%220%200%20800%20600%22%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20rx%3D%2216%22%20fill%3D%22%23252d23%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%22760%22%20height%3D%22560%22%20rx%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%2358634f%22%20stroke-dasharray%3D%226%208%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%238c9980%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%22350%22%20y%3D%22232%22%20width%3D%22100%22%20height%3D%2276%22%20rx%3D%229%22%2F%3E%3Ccircle%20cx%3D%22376%22%20cy%3D%22254%22%20r%3D%229%22%2F%3E%3Cpath%20d%3D%22m355%20296%2028-27%2022%2020%2016-16%2024%2023%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22400%22%20y%3D%22355%22%20fill%3D%22%23c8cfbf%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2221%22%20text-anchor%3D%22middle%22%3EFotografija%20usluge%204%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Mjesto za fotografiju usluge 4" width="800" height="600" loading="lazy">
+            <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22320%22%20viewBox%3D%220%200%20640%20320%22%3E%3Crect%20width%3D%22640%22%20height%3D%22320%22%20rx%3D%2212%22%20fill%3D%22%23252d23%22%2F%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22608%22%20height%3D%22288%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%2358634f%22%20stroke-dasharray%3D%226%208%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%238c9980%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%22287%22%20y%3D%22110%22%20width%3D%2266%22%20height%3D%2250%22%20rx%3D%226%22%2F%3E%3Ccircle%20cx%3D%22304%22%20cy%3D%22125%22%20r%3D%226%22%2F%3E%3Cpath%20d%3D%22m291%20152%2018-18%2015%2013%2011-11%2014%2016%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22320%22%20y%3D%22200%22%20fill%3D%22%23c8cfbf%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2216%22%20text-anchor%3D%22middle%22%3EFotografija%20stavke%204%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Mjesto za fotografiju stavke 4" width="640" height="320" loading="lazy">
           </figure>
         </article>
         <article class="service-row">
           <div class="service-copy">
-            <span class="service-number" aria-hidden="true">05</span>
-            <h3>Usluga 5</h3>
-            <p>Ovdje dolazi tekst o usluzi 5. Prostor za opis ponude, način rada i ono što ovu uslugu čini posebnom.</p>
+            <h3>stavka 5</h3>
+            <p>ovdje dajem opis, jako smart</p>
           </div>
           <figure class="photo-frame">
-            <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%20viewBox%3D%220%200%20800%20600%22%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20rx%3D%2216%22%20fill%3D%22%23252d23%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%22760%22%20height%3D%22560%22%20rx%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%2358634f%22%20stroke-dasharray%3D%226%208%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%238c9980%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%22350%22%20y%3D%22232%22%20width%3D%22100%22%20height%3D%2276%22%20rx%3D%229%22%2F%3E%3Ccircle%20cx%3D%22376%22%20cy%3D%22254%22%20r%3D%229%22%2F%3E%3Cpath%20d%3D%22m355%20296%2028-27%2022%2020%2016-16%2024%2023%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22400%22%20y%3D%22355%22%20fill%3D%22%23c8cfbf%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2221%22%20text-anchor%3D%22middle%22%3EFotografija%20usluge%205%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Mjesto za fotografiju usluge 5" width="800" height="600" loading="lazy">
+            <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22320%22%20viewBox%3D%220%200%20640%20320%22%3E%3Crect%20width%3D%22640%22%20height%3D%22320%22%20rx%3D%2212%22%20fill%3D%22%23252d23%22%2F%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%22608%22%20height%3D%22288%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%2358634f%22%20stroke-dasharray%3D%226%208%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%238c9980%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%22287%22%20y%3D%22110%22%20width%3D%2266%22%20height%3D%2250%22%20rx%3D%226%22%2F%3E%3Ccircle%20cx%3D%22304%22%20cy%3D%22125%22%20r%3D%226%22%2F%3E%3Cpath%20d%3D%22m291%20152%2018-18%2015%2013%2011-11%2014%2016%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22320%22%20y%3D%22200%22%20fill%3D%22%23c8cfbf%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-size%3D%2216%22%20text-anchor%3D%22middle%22%3EFotografija%20stavke%205%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Mjesto za fotografiju stavke 5" width="640" height="320" loading="lazy">
           </figure>
         </article>
       </div>
     </section>
     <section class="section container" id="kontakt" aria-labelledby="contact-heading">
       <div class="section-heading">
-        <span class="section-number" aria-hidden="true">03</span>
         <h2 id="contact-heading">Kontakt</h2>
       </div>
-      <p class="contact-intro">Ovdje dolazi tekst za kontakt — kratka poruka i informacije o tome kako mi se javiti.</p>
+      <p class="contact-intro">poziv za kontakt ovdje</p>
       <div class="contact-grid">
         <article class="contact-card">
           <div class="contact-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
@@ -221,7 +214,6 @@
     </section>
     <section class="section container" id="poslovne-informacije" aria-labelledby="business-heading">
       <div class="section-heading">
-        <span class="section-number" aria-hidden="true">04</span>
         <h2 id="business-heading">Poslovne informacije</h2>
       </div>
       <div class="business-list">
