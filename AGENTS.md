@@ -9,3 +9,4 @@ The public GitHub Pages site is https://viteskaposla.github.io/ and publishes fr
 - For preview updates, change only files under `main/preview/`; preserve `main/index.html` exactly so the root page stays Coming soon.
 - Keep the draft preview marked `noindex`; remove that directive from the final homepage when the user asks to launch.
 - Merge into `main`, change the Pages publishing source, or publish the finished website only when the user asks to launch.
+- The draft uses the Story theme by HTML5 UP, with its base CSS inlined in `index.html` and local layout overrides below it. Keep the theme's license notice and visible Story / HTML5 UP attribution when editing.
