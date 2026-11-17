@@ -8688,7 +8688,9 @@ input, select, textarea {
     .business-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
     .business-row { min-width: 0; padding: 1.5rem; border: 1px solid var(--line); background: var(--surface); }
     .business-row h3 { margin-bottom: .75rem; font-size: 1.2rem; }
-    .business-row p { font-size: 1rem; }
+    .business-formats { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+    .business-formats li { margin: 0; padding: 0; }
+    .business-formats .business-link { display: inline-block; font-size: 1rem; }
     .business-link { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
     .business-link:hover { color: var(--text); }
     .site-footer { border-top: 1px solid var(--line); background: #f1f1eb; }
@@ -8696,13 +8698,19 @@ input, select, textarea {
     .footer-inner p { color: var(--accent); font-size: .9rem; letter-spacing: .16em; }
     .footer-inner .design-credit { margin-top: .65rem; color: var(--muted); font-size: .8rem; letter-spacing: 0; }
     .design-credit a { color: inherit; text-decoration: underline; text-underline-offset: .2em; }
+    @media (max-width: 960px) {
+      .header-inner { flex-wrap: wrap; gap: 1rem; }
+      .site-nav { width: 100%; }
+      .nav-button { flex: 1; }
+      .section { scroll-margin-top: 190px; }
+    }
     @media (max-width: 760px) {
       .header-inner { gap: 1rem; flex-wrap: wrap; padding-block: .85rem; }
       .brand { gap: 1rem; }
       .site-logo { width: 72px; height: 54px; }
-      .site-nav { width: 100%; gap: .5rem; }
-      .nav-button { flex: 1; padding-inline: .5rem; }
-      .section { scroll-margin-top: 160px; }
+      .site-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: .5rem; }
+      .nav-button { min-width: 0; padding: .5rem; text-align: center; }
+      .section { scroll-margin-top: 240px; }
       .about-grid, .service-row { grid-template-columns: 1fr; gap: 2rem; }
       .about-quote { padding-right: 1.2rem; }
       .service-row:nth-child(even) .service-copy,
@@ -8733,10 +8741,10 @@ input, select, textarea {
         <span class="brand-name">NAZIV</span>
       </div>
       <nav class="site-nav" aria-label="Glavna navigacija">
-        <a class="nav-button" href="#o-meni">klik 1</a>
-        <a class="nav-button" href="#sto-nudim">klik 2</a>
-        <a class="nav-button" href="#kontakt">klik 3</a>
-        <a class="nav-button" href="#poslovne-informacije">klik 4</a>
+        <a class="nav-button" href="#o-meni">O meni</a>
+        <a class="nav-button" href="#sto-nudim">Što nudim</a>
+        <a class="nav-button" href="#kontakt">Kontakt</a>
+        <a class="nav-button" href="#poslovne-informacije">Poslovne informacije</a>
       </nav>
     </div>
   </header>
@@ -8876,19 +8884,19 @@ input, select, textarea {
       <div class="business-list">
         <div class="business-row">
           <h3><a class="business-link" role="link" aria-disabled="true" tabindex="0" title="Poveznica uskoro">Uvjeti poslovanja</a></h3>
-          <p>Ovdje dolazi tekst uvjeta poslovanja.</p>
         </div>
         <div class="business-row">
           <h3><a class="business-link" role="link" aria-disabled="true" tabindex="0" title="Poveznica uskoro">Politika privatnosti</a></h3>
-          <p>Ovdje dolazi tekst politike privatnosti.</p>
         </div>
         <div class="business-row">
-          <h3><a class="business-link" role="link" aria-disabled="true" tabindex="0" title="Poveznica uskoro">Cjenik</a></h3>
-          <p>Ovdje dolazi tekst cjenika.</p>
+          <h3>Cjenik</h3>
+          <ul class="business-formats" aria-label="Formati cjenika">
+            <li><a class="business-link" role="link" aria-disabled="true" tabindex="0" title="Poveznica uskoro">Cjenik - PDF</a></li>
+            <li><a class="business-link" role="link" aria-disabled="true" tabindex="0" title="Poveznica uskoro">Cjenik - CSV</a></li>
+          </ul>
         </div>
         <div class="business-row">
           <h3><a class="business-link" role="link" aria-disabled="true" tabindex="0" title="Poveznica uskoro">Raskid ugovora</a></h3>
-          <p>Ovdje dolazi tekst o raskidu ugovora.</p>
         </div>
       </div>
     </section>
